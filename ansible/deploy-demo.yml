@@ -1,5 +1,6 @@
 - hosts: jo
-  become: true
   gather_facts: no
   roles:
     - role: 'deploy/django-demo-app/nginx'
+      vars:
+        gunicorn_port: 9001
