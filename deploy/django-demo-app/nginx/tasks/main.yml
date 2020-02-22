@@ -1,0 +1,10 @@
+---
+- name: Copy demo.dglte.net
+  template:
+    src: demo.dglte.net
+    dest: /etc/nginx/sites-available/
+
+- name: Deactivate the default nginx from sites-available
+  file:
+    path: /etc/nginx/sites-available/default
+    state: absent
