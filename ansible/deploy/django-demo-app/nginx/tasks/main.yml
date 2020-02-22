@@ -12,7 +12,13 @@
 - name: Copy demo.dglte.net
   template:
     src: demo.dglte.net
-    dest: /etc/nginx/sites-available/    
+    dest: /etc/nginx/sites-available/
+
+- name: Activate the demo.dglte.net site
+  file: 
+    src: /etc/nginx/sites-available/demo.dglte.net
+    dest: /etc/nginx/sites-enabled/demo.dglte.net
+    state: link
 
 - name: Restart nginx.service
   systemd:
