@@ -1,10 +1,20 @@
 ---
-- name: Copy demo.dglte.net
-  template:
-    src: demo.dglte.net
-    dest: /etc/nginx/sites-available/
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
 
 - name: Deactivate the default nginx from sites-available
   file:
     path: /etc/nginx/sites-available/default
     state: absent
+
+- name: Copy demo.dglte.net
+  template:
+    src: demo.dglte.net
+    dest: /etc/nginx/sites-available/    
+
+- name: Restart nginx.service
+  systemd:
+    state: restarted
+    name: nginx

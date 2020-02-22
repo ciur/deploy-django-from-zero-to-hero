@@ -1,5 +1,6 @@
 - hosts: jo
   gather_facts: no
+  become: True
   roles:
     - role: 'deploy/django-demo-app/nginx'
       vars:
