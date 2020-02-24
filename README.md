@@ -2,6 +2,8 @@
 
 Pretty good start for ansible structure  to deploy a django application.
 
+![Screenshot](./docs/img/django-deploy.png)
+
 Usage
 =======
 
