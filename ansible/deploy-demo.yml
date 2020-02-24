@@ -4,4 +4,4 @@
   roles:
     - role: 'deploy/django-demo-app/nginx'
       vars:
-        gunicorn_port: 9001
+        gunicorn_port: 8000
