@@ -31,3 +31,10 @@ hosts file in future lesson.
 In this part we learn the role of web server - nginx in our case - and how to it up.
 I explain in very detail the structure of nginx's site configuration file and most importantly
 the server, location and alias directives and their roles in serving static content.
+
+
+[Lesson #20 - Django in Production - From Zero to Hero - Part-3](https://django-lessons.com/lesson/lesson-20-django-deploy-production-step-by-step-from-zero-to-hero-part-3)
+
+In introduce Ansible here - which is de facto standard automation tool in
+devops world. I explain in detail about inventory file, playbook's and roles
+files structure.
