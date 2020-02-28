@@ -40,3 +40,10 @@ the server, location and alias directives and their roles in serving static cont
 In introduce Ansible here - which is de facto standard automation tool in
 devops world. I explain in detail about inventory file, playbook's and roles
 files structure.
+
+[Lesson #21 - Django in Production - From Zero to Hero - Part-4](https://django-lessons.com/lesson/lesson-20-django-deploy-production-step-by-step-from-zero-to-hero-part-4)
+
+In this lesson we setup Ansible's db role. I explain how to add steps to
+automate adding a new repository, create a database and add a user (with password).
+I will show you commands to add user/database manual way as well, because it is not
+a big deal anyway.
