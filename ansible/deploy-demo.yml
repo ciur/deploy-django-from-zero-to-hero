@@ -1,7 +1,13 @@
 - hosts: jo
   gather_facts: no
   become: True
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    gunicorn_port: 8000
+    db_user: ""
+    db_name: ""
+    db_pass: ""
   roles:
     - role: 'deploy/django-demo-app/nginx'
-      vars:
-        gunicorn_port: 8000
+    - role: 'deploy/django-demo-app/db'
+

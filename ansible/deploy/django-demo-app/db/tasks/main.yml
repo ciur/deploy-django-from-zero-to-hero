@@ -1,0 +1,34 @@
+---
+- name: Add Postgres repo for Ubuntu 18.04
+  apt_repository:  # add-apt-repository <repo>
+    repo: deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+    state: present
+    update_cache: no
+
+- name: Add official PG public key key
+  apt_key:  # wget --quiet -O - <repo> | sudo apt-key add -
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+
+- name: Install Postgresql 12 Server
+  apt: # apt-get update && apt-get install ...
+    name:
+      - postgresql-12
+      - postgresql
+      - postgresql-contrib
+      - libpq-dev
+      - python3-psycopg2
+    state: present
+    update_cache: yes    
+
+- name: Create DB user
+  postgresql_user:
+    name: "{{db_user}}"
+    password: "{{db_pass}}"
+  become_user: postgres
+
+- name: Create DB instance
+  postgresql_db:
+    name: "{{db_name}}"
+    owner: "{{db_user}}"
+  become_user: postgres
