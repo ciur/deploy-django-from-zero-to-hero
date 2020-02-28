@@ -30,8 +30,8 @@ hosts file in future lesson.
 
 [Lesson #19 - Django in Production - From Zero to Hero - Part-2](https://django-lessons.com/lesson/lesson-19-django-deploy-production-step-by-step-from-zero-to-hero-part-2)
 
-In this part we learn the role of web server - nginx in our case - and how to it up.
-I explain in very detail the structure of nginx's site configuration file and most importantly
+In this part we learn the role of web server - nginx in our case - and how to set it up.
+I explain in lots of details the structure of nginx's site configuration file and most importantly
 the server, location and alias directives and their roles in serving static content.
 
 
