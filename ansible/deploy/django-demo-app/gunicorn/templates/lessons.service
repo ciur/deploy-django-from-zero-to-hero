@@ -1,0 +1,13 @@
+[Unit]
+Description=Django Lessons
+
+[Service]
+Type=simple
+PIDFile=/home/johm/django-lessons-proj/gunicorn.pid
+User=john
+Group=john
+EnvironmentFile=/etc/lessons/gunicorn.env
+WorkingDirectory=/home/john/django-lessons-proj/
+ExecStart=/home/john/django-lessons-proj/venv/bin/gunicorn --config /etc/lessons/gunicorn.conf.py config.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
