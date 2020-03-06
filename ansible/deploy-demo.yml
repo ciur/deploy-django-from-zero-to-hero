@@ -9,5 +9,9 @@
     db_pass: "lessons_pass_xy2"
   roles:
     - role: 'deploy/django-demo-app/nginx'
+      tags: ['nginx']
     - role: 'deploy/django-demo-app/db'
+      tags: ['db']
+    - role: 'deploy/django-demo-app/app'
+      tags: ['app']
 

@@ -1,0 +1,6 @@
+- name: Clone django project repository
+  git:
+    repo: "https://github.com/ciur/django-lessons-proj.git"
+    dest: "/home/john/django-lessons-proj"
+    version: master
+  become_user: john
