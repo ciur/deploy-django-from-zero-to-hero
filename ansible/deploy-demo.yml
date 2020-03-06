@@ -4,14 +4,10 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
     gunicorn_port: 8000
-    db_user: "lessons_user_xy2"
-    db_name: "lessons_db_xy2"
-    db_pass: "lessons_pass_xy2"
+    db_user: ""
+    db_name: ""
+    db_pass: ""
   roles:
     - role: 'deploy/django-demo-app/nginx'
-      tags: ['nginx']
     - role: 'deploy/django-demo-app/db'
-      tags: ['db']
-    - role: 'deploy/django-demo-app/app'
-      tags: ['app']
 
