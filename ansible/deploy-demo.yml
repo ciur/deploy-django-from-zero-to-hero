@@ -4,10 +4,17 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
     gunicorn_port: 8000
+    projdir: "/home/john/django-lessons-proj"
+    etcdir: "/etc/lessons/"
     db_user: ""
     db_name: ""
     db_pass: ""
-    projdir: "/home/john/django-lessons-proj"
+    secret_key: ""
+    aws_storage_bucket_name: ""
+    aws_s3_region_name: ""
+    aws_access_key_id: ""
+    aws_s3_custom_domain: ""
+    aws_secret_access_key: ""
   roles:
     - role: 'deploy/django-demo-app/nginx'
       tags: ['nginx']
@@ -15,4 +22,6 @@
       tags: ['db']
     - role: 'deploy/django-demo-app/app'
       tags: ['app']
+    - role: 'deploy/django-demo-app/gunicorn'
+      tags: ['gunicorn']
 

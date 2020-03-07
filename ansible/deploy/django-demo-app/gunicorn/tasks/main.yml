@@ -1,0 +1,27 @@
+---
+- name: Create main dirs for {{etcdir}}
+  file:
+    path: "{{etcdir}}"
+    state: directory
+
+- name: Copy gunicorn configs
+  template:
+    src: gunicorn.conf.py
+    dest: "{{etcdir}}/gunicorn.conf.py"
+
+- name: Copy gunicorn environment file
+  template:
+    src: gunicorn.env
+    dest: "{{etcdir}}/gunicorn.env"
+
+- name: Copy gunicorn system unit
+  template:
+    src: lessons.service
+    dest: /etc/systemd/system/lessons.service
+
+- name: restart lessons service
+  systemd:
+    name: lessons
+    state: restarted
+    daemon_reload: yes
+    enabled: yes    

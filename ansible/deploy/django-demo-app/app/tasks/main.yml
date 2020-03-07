@@ -17,3 +17,40 @@
     requirements: "{{projdir}}/requirements.freeze"
     virtualenv_command: "/usr/bin/python3 -m venv"
   become_user: john
+
+- name: Run migrate
+  django_manage:
+    command: collectstatic
+    app_path: "{{projdir}}"
+    settings: "config.settings.production"
+    virtualenv: "{{projdir}}/venv"
+  become_user: john 
+  environment:
+    SECRET_KEY: "{{secret_key}}"
+    DB_NAME: "{{db_name}}"
+    DB_USER: "{{db_user}}"
+    DB_PASS: "{{db_pass}}"
+    AWS_STORAGE_BUCKET_NAME: "{{aws_storage_bucket_name}}"
+    AWS_S3_REGION_NAME: "{{aws_s3_region_name}}"
+    AWS_ACCESS_KEY_ID: "{{aws_access_key_id}}"
+    AWS_S3_CUSTOM_DOMAIN: "{{aws_s3_custom_domain}}"
+    AWS_SECRET_ACCESS_KEY: "{{aws_secret_access_key}}"
+
+- name: Run collectstatic
+  django_manage:
+    command: collectstatic
+    app_path: "{{projdir}}"
+    settings: "config.settings.production"
+    virtualenv: "{{projdir}}/venv"
+  become_user: john
+  environment:
+    SECRET_KEY: "{{secret_key}}"
+    DB_NAME: "{{db_name}}"
+    DB_USER: "{{db_user}}"
+    DB_PASS: "{{db_pass}}"
+    AWS_STORAGE_BUCKET_NAME: "{{aws_storage_bucket_name}}"
+    AWS_S3_REGION_NAME: "{{aws_s3_region_name}}"
+    AWS_ACCESS_KEY_ID: "{{aws_access_key_id}}"
+    AWS_S3_CUSTOM_DOMAIN: "{{aws_s3_custom_domain}}"
+    AWS_SECRET_ACCESS_KEY: "{{aws_secret_access_key}}"
+

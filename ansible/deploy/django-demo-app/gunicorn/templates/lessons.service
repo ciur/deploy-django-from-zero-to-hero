@@ -3,11 +3,11 @@ Description=Django Lessons
 
 [Service]
 Type=simple
-PIDFile=/home/johm/django-lessons-proj/gunicorn.pid
+PIDFile={{projdir}}/gunicorn.pid
 User=john
 Group=john
-EnvironmentFile=/etc/lessons/gunicorn.env
-WorkingDirectory=/home/john/django-lessons-proj/
-ExecStart=/home/john/django-lessons-proj/venv/bin/gunicorn --config /etc/lessons/gunicorn.conf.py config.wsgi:application
+EnvironmentFile={{etcdir}}/gunicorn.env
+WorkingDirectory={{projdir}}/
+ExecStart={{projdir}}/venv/bin/gunicorn --config {{etcdir}}/gunicorn.conf.py config.wsgi:application
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID
