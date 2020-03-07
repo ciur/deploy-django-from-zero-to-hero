@@ -1,6 +1,19 @@
 - name: Clone django project repository
   git:
     repo: "https://github.com/ciur/django-lessons-proj.git"
-    dest: "/home/john/django-lessons-proj"
+    dest: "{{projdir}}"
     version: master
+  become_user: john
+
+- name: Install production.py
+  template:
+    src: production.py
+    dest: "{{projdir}}/config/settings/production.py"
+  become_user: john
+
+- name: Create virtualenv and run pip install -r requirement.freeze
+  pip:
+    virtualenv: "{{projdir}}/venv"
+    requirements: "{{projdir}}/requirements.freeze"
+    virtualenv_command: "/usr/bin/python3 -m venv"
   become_user: john
